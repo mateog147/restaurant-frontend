@@ -1,0 +1,23 @@
+<div class="inventory-wrapper">
+  <h1 class="inventory-title">Inventory</h1>
+
+  <table class="inventory-table" *ngIf="!loading && filtered.length">
+    <thead>
+      <tr>
+        <th>Ingredient</th>
+        <th>Quantity</th>
+        <th>Unit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ingredient of filtered">
+        <td>{{ ingredient.name | titlecase }}</td>
+        <td>{{ ingredient.actual }}</td>
+        <td>kg</td>
+      </tr>
+    </tbody>
+  </table>
+  <div *ngIf="loading" class="loading">Loading...</div>
+  <div *ngIf="!loading && !filtered.length" class="error">No ingredients found.</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+</div>
