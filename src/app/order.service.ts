@@ -18,4 +18,8 @@ export class OrderService {
   getIngredients(): Observable<any[]> {
     return this.http.get<any[]>('https://restaurant-cellar-ms.onrender.com/cellar/ingredients/available');
   }
+
+  getHealthStatus(): Observable<any> {
+    return this.http.get<any>('https://restaurant-api-gateway-hih5.onrender.com/cellar/health');
+  }
 }

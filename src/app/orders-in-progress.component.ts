@@ -57,6 +57,12 @@ export class OrdersInProgressComponent implements OnInit {
   constructor(private orderService: OrderService) {}
   ngOnInit() {
     this.loadOrders();
+    this.healthCheck();
+  }
+  healthCheck() {
+    this.orderService.getHealthStatus().subscribe(() => {
+      console.log('Health check passed');
+    });
   }
   onSubmit() {
     this.orderService.placeOrder(this.quantity).subscribe(() => {
