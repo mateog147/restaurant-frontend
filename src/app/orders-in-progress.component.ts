@@ -20,6 +20,7 @@ import { OrderService } from './order.service';
         </div>
       </form>
       <h2 class="orders-title">Orders in Progress</h2>
+      <button class="submit-btn" type="button" (click)="loadOrders()">Refresh</button>
       <table class="orders-table">
         <thead>
           <tr>
@@ -54,7 +55,7 @@ import { OrderService } from './order.service';
 export class OrdersInProgressComponent implements OnInit {
   orders: any[] = [];
   quantity = 1;
-  constructor(private orderService: OrderService) {}
+  constructor(private orderService: OrderService) { }
   ngOnInit() {
     this.loadOrders();
     this.healthCheck();
